@@ -1,0 +1,4 @@
+# dsh-bg-tool bundle patch: mounts the plugin into a profile layer stack.
+- insert:
+    - id: bg-tool
+      name: '@local/dsh-bg-tool'

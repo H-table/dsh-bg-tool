@@ -49,7 +49,14 @@ DeepSeek Harness（DSH）里的模型大多只认文字，图片处理往往要�
 
 ### 1. 准备本地环境（一次性）
 
-插件依赖工作区里的 `.bg-tools/` 目录（Python venv + 模型文件 + `bg_server.py`）。准备完成后结构大致如下：
+插件依赖一个 `.bg-tools/` 环境根目录（Python venv + 模型文件 + `bg_server.py`），解析顺序如下：
+
+1. `$DSH_BG_TOOL_ROOT` 环境变量（显式指定，优先级最高）；
+2. `$DSH_HOME/.bg-tools`（或 `~/.dsh/.bg-tools`）——机器本地的默认位置；
+3. 旧版工作区路径 `E:/ProjectCode/DeepSeekHarnessWorkbook/.bg-tools`（迁移兼容：存在时自动沿用，新机器上不存在则跳过）；
+4. 以上都不存在时，默认使用 `$DSH_HOME/.bg-tools`。
+
+准备完成后结构大致如下：
 
 ```text
 .bg-tools/
